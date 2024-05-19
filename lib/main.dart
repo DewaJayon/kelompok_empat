@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       title: 'Kelompok Empat',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.grey.shade900),
         useMaterial3: true,
       ),
       home: const StartPage(),

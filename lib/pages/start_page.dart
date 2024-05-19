@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kelompok_empat/pages/main_page.dart';
+import 'package:kelompok_empat/widgets/tombol.dart';
 
 class StartPage extends StatelessWidget {
   const StartPage({super.key});
@@ -31,7 +32,7 @@ class StartPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                InkWell(
+                Tombol(
                   onTap: () {
                     Navigator.pushReplacement(
                       context,
@@ -40,22 +41,8 @@ class StartPage extends StatelessWidget {
                       ),
                     );
                   },
-                  child: Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade900,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Text(
-                      "Mulai",
-                      style: GoogleFonts.poppins(
-                        fontSize: 16,
-                        fontWeight: FontWeight.values[3],
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                )
+                  text: "Mulai",
+                ),
               ],
             ),
           ),
