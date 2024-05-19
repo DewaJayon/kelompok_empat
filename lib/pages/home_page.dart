@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:banner_carousel/banner_carousel.dart';
+import 'package:kelompok_empat/pages/detail_page.dart';
 import 'package:kelompok_empat/widgets/home_banner.dart';
 
 class HomePage extends StatefulWidget {
@@ -97,7 +98,12 @@ class _HomePageState extends State<HomePage> {
                   for (int i = 0; i < 10; i++)
                     GestureDetector(
                       onTap: () {
-                        print(i);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const DetailPage(),
+                          ),
+                        );
                       },
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
