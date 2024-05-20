@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
+import 'package:kelompok_empat/widgets/custom_text_field.dart';
 import 'package:kelompok_empat/widgets/tombol.dart';
 
 class CreatePage extends StatefulWidget {
@@ -45,33 +46,11 @@ class _CreatePageState extends State<CreatePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child: TextFormField(
-                decoration: const InputDecoration(
-                  labelText: 'Nama Produk',
-                  labelStyle: TextStyle(color: Colors.white),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.white,
-                      width: 2,
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10),
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.white,
-                      width: 2,
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10),
-                    ),
-                  ),
-                ),
-                style: const TextStyle(color: Colors.white),
-              ),
+            const CustomTextField(label: "Nama Produk"),
+            const CustomTextField(label: "Deskripsi"),
+            const CustomTextField(
+              label: "Harga",
+              keyboardType: TextInputType.number,
             ),
             const SizedBox(height: 20),
             Tombol(

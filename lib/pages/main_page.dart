@@ -27,6 +27,8 @@ class _MainPageState extends State<MainPage> {
       bottomNavigationBar: SafeArea(
         child: Container(
           color: Colors.black,
+          height: 60,
+          width: MediaQuery.of(context).size.width,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
             child: GNav(
