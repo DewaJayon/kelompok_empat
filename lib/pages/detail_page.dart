@@ -1,12 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kelompok_empat/models/product.dart';
+import 'package:kelompok_empat/widgets/currency_format.dart';
 
 class DetailPage extends StatelessWidget {
-  const DetailPage({super.key});
+  const DetailPage({super.key, required this.product});
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
+    var harga = int.parse(product.harga);
     return Scaffold(
       backgroundColor: Colors.grey[900],
       appBar: AppBar(
@@ -40,17 +45,16 @@ class DetailPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.network(
-              "https://images.unsplash.com/photo-1662221222462-5ba29f257d0a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDl8fG52aWRpYXxlbnwwfHwwfHx8MA%3D%3D",
-            ),
+            Image.network(product.image),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 20),
+              width: double.infinity,
               color: Colors.black,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '120.000',
+                    CurrencyFormat.convertToIdr(harga, 0),
                     style: GoogleFonts.poppins(
                       color: Colors.white,
                       fontSize: 20,
@@ -58,7 +62,7 @@ class DetailPage extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "Colorful GeForce RTX 4090 24GB GDDR6X NB EX-V",
+                    product.title,
                     style: GoogleFonts.poppins(
                       color: Colors.white,
                       fontSize: 16,
@@ -86,7 +90,7 @@ class DetailPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 5),
                   Text(
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    product.description,
                     style: GoogleFonts.poppins(
                       color: Colors.white,
                       fontSize: 12,
@@ -117,7 +121,7 @@ class DetailPage extends StatelessWidget {
                 ),
                 Container(
                   height: 50,
-                  width: 150,
+                  width: MediaQuery.of(context).size.width / 3,
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.white),
                     borderRadius: BorderRadius.circular(20),
@@ -143,7 +147,7 @@ class DetailPage extends StatelessWidget {
                 ),
                 Container(
                   height: 50,
-                  width: 150,
+                  width: MediaQuery.of(context).size.width / 3,
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.white),
                     borderRadius: BorderRadius.circular(20),
