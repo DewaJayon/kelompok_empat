@@ -27,6 +27,7 @@ class Product {
     );
   }
 
+// untuk get data dari API
   static Future<List<Product>> fetchData() async {
     var url = 'https://kusumawardanastudio.com/api/uas/kelompok4/api_read.php';
     final response = await http.get(Uri.parse(url));
@@ -40,6 +41,27 @@ class Product {
       return jsonResponse.map((data) => Product.fromJson(data)).toList();
     } else {
       throw Exception('gagal mendapatkan data API');
+    }
+  }
+
+// untuk post data ke API
+  static Future postData(String title, String description, String harga) async {
+    var url =
+        'https://kusumawardanastudio.com/api/uas/kelompok4/api_create.php';
+
+    final response = await http.post(
+      Uri.parse(url),
+      body: {
+        "title": title,
+        "description": description,
+        "harga": harga,
+      },
+    );
+
+    if (response.statusCode == 200) {
+      return true;
+    } else {
+      return false;
     }
   }
 }

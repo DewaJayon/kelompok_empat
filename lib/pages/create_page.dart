@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
+import 'package:kelompok_empat/models/product.dart';
 import 'package:kelompok_empat/widgets/custom_text_field.dart';
 import 'package:kelompok_empat/widgets/tombol.dart';
 
@@ -31,6 +32,33 @@ class _CreatePageState extends State<CreatePage> {
       ..showSnackBar(snackBar);
   }
 
+  final TextEditingController _namaController = TextEditingController();
+  final TextEditingController _deskripsiController = TextEditingController();
+  final TextEditingController _hargaController = TextEditingController();
+
+  final _formKey = GlobalKey<FormState>();
+
+  void _createProduct() async {
+    if (_formKey.currentState!.validate()) {
+      final title = _namaController.text;
+      final description = _deskripsiController.text;
+      final harga = _hargaController.text;
+      final product = await Product.postData(title, description, harga);
+      if (product) {
+        _showSnackbar(
+          "Success",
+          "Produk Berhasil ditambahkan",
+          ContentType.success,
+        );
+        _namaController.clear();
+        _deskripsiController.clear();
+        _hargaController.clear();
+      } else {
+        _showSnackbar("Error", "Gagal menambahkan produk", ContentType.failure);
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,27 +71,51 @@ class _CreatePageState extends State<CreatePage> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const CustomTextField(label: "Nama Produk"),
-            const CustomTextField(label: "Deskripsi"),
-            const CustomTextField(
-              label: "Harga",
-              keyboardType: TextInputType.number,
-            ),
-            const SizedBox(height: 20),
-            Tombol(
-              onTap: () {
-                _showSnackbar(
-                  'Success',
-                  'Produk Berhasil',
-                  ContentType.success,
-                );
-              },
-              text: "Tambah",
-            ),
-          ],
+        child: Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CustomTextField(
+                controller: _namaController,
+                label: "Nama Produk",
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Masukkan Nama Produk';
+                  }
+                  return null;
+                },
+              ),
+              CustomTextField(
+                controller: _deskripsiController,
+                label: "Deskripsi",
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Masukkan Deskripsi';
+                  }
+                  return null;
+                },
+              ),
+              CustomTextField(
+                controller: _hargaController,
+                label: "Harga",
+                keyboardType: TextInputType.number,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Masukkan Harga';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 20),
+              Tombol(
+                onTap: () {
+                  _createProduct();
+                },
+                text: "Tambah",
+              ),
+            ],
+          ),
         ),
       ),
     );
