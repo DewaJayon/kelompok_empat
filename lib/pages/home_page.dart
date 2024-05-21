@@ -18,15 +18,15 @@ class _HomePageState extends State<HomePage> {
 
   getData() async {
     products = await Product.fetchData();
-    setState(() {});
+    setState(() {
+      products = products;
+    });
   }
 
   @override
   void initState() {
     super.initState();
-    setState(() {
-      getData();
-    });
+    getData();
   }
 
   @override
@@ -114,16 +114,10 @@ class _HomePageState extends State<HomePage> {
                   crossAxisSpacing: 10,
                 ),
                 itemBuilder: (context, index) {
-                  if (products.isEmpty) {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
                   Product product = products[index];
                   var harga = int.parse(product.harga);
                   return GestureDetector(
                     onTap: () {
-                      // Product product = products[index];
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -146,7 +140,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         Text(
-                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                          product.title,
                           overflow: TextOverflow.ellipsis,
                           maxLines: 1,
                           style: GoogleFonts.poppins(
