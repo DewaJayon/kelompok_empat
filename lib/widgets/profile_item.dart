@@ -14,23 +14,32 @@ class ProfileItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
-      child: Row(
-        children: [
-          Icon(
-            icon,
-            color: Colors.white,
-            size: 30,
-          ),
-          const SizedBox(width: 20),
-          Text(
-            text,
-            style: GoogleFonts.poppins(
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: 60,
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.primary,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Row(
+          children: [
+            Icon(
+              icon,
               color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.normal,
+              size: 30,
             ),
-          )
-        ],
+            const SizedBox(width: 20),
+            Text(
+              text,
+              style: GoogleFonts.poppins(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.normal,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

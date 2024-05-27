@@ -22,7 +22,7 @@ class Tombol extends StatelessWidget {
         height: 50,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: Colors.grey.shade900,
+          color: Theme.of(context).colorScheme.primary,
         ),
         child: Center(
           child: Text(

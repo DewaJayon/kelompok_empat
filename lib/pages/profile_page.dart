@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kelompok_empat/pages/setting_page.dart';
 import 'package:kelompok_empat/widgets/profile_item.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -8,13 +9,13 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade900,
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.transparent,
         title: Text(
           'Profile',
           style: GoogleFonts.poppins(
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.inversePrimary,
             fontSize: 20,
             fontWeight: FontWeight.normal,
           ),
@@ -27,11 +28,11 @@ class ProfilePage extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               height: 150,
               margin: const EdgeInsets.only(top: 5),
-              decoration: const BoxDecoration(
-                color: Colors.black,
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primary,
               ),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
                     width: 100,
@@ -39,11 +40,36 @@ class ProfilePage extends StatelessWidget {
                     margin: const EdgeInsets.only(left: 20),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
-                      color: Colors.green,
+                      color: Theme.of(context).colorScheme.primary,
                       image: const DecorationImage(
-                        image: AssetImage('assets/images/splash.png'),
+                        image: AssetImage('assets/images/person.png'),
                         fit: BoxFit.fill,
                       ),
+                    ),
+                  ),
+                  const SizedBox(width: 20),
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Kelompok Empat',
+                          style: GoogleFonts.poppins(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          'kelompokempat@gmail.com',
+                          style: GoogleFonts.poppins(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -53,18 +79,28 @@ class ProfilePage extends StatelessWidget {
             Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
-              decoration: const BoxDecoration(
-                color: Colors.black,
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.background,
               ),
-              child: const Column(
+              child: Column(
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     child: Column(
                       children: [
-                        ProfileItem(
-                          text: "Settings",
-                          icon: Icons.settings,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const SettingPage(),
+                              ),
+                            );
+                          },
+                          child: const ProfileItem(
+                            text: "Settings",
+                            icon: Icons.settings,
+                          ),
                         ),
                       ],
                     ),

@@ -23,27 +23,29 @@ class CustomTextField extends StatelessWidget {
         controller: controller,
         decoration: InputDecoration(
           labelText: label,
-          labelStyle: const TextStyle(color: Colors.white),
-          border: const OutlineInputBorder(
+          labelStyle: TextStyle(
+            color: Theme.of(context).colorScheme.inversePrimary,
+          ),
+          border: OutlineInputBorder(
             borderSide: BorderSide(
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.inversePrimary,
               width: 2,
             ),
-            borderRadius: BorderRadius.all(
+            borderRadius: const BorderRadius.all(
               Radius.circular(10),
             ),
           ),
-          focusedBorder: const OutlineInputBorder(
+          focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.inversePrimary,
               width: 2,
             ),
-            borderRadius: BorderRadius.all(
+            borderRadius: const BorderRadius.all(
               Radius.circular(10),
             ),
           ),
         ),
-        style: const TextStyle(color: Colors.white),
+        style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
       ),
     );
   }
