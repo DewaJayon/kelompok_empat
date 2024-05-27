@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:banner_carousel/banner_carousel.dart';
 import 'package:kelompok_empat/models/product.dart';
 import 'package:kelompok_empat/pages/detail_page.dart';
-import 'package:kelompok_empat/widgets/currency_format.dart';
+import 'package:kelompok_empat/helpers/currency_format.dart';
 import 'package:kelompok_empat/widgets/home_banner.dart';
 
 class HomePage extends StatefulWidget {
@@ -32,35 +32,35 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         title: Text(
           "SOK ASIK",
           style: GoogleFonts.poppins(
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.inversePrimary,
           ),
         ),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.transparent,
         actions: [
           IconButton(
             onPressed: () {},
-            icon: const Icon(
+            icon: Icon(
               Icons.search,
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.inversePrimary,
             ),
           ),
           IconButton(
             onPressed: () {},
-            icon: const Icon(
+            icon: Icon(
               Icons.shopping_cart_outlined,
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.inversePrimary,
             ),
           ),
           IconButton(
             onPressed: () {},
-            icon: const Icon(
+            icon: Icon(
               Icons.notifications_none_rounded,
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.inversePrimary,
             ),
           ),
         ],
@@ -96,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.inversePrimary,
                 ),
               ),
             ),
@@ -146,7 +146,7 @@ class _HomePageState extends State<HomePage> {
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.normal,
                             fontSize: 13,
-                            color: Colors.white,
+                            color: Theme.of(context).colorScheme.inversePrimary,
                           ),
                         ),
                         Text(
@@ -154,7 +154,7 @@ class _HomePageState extends State<HomePage> {
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.bold,
                             fontSize: 14,
-                            color: Colors.white,
+                            color: Theme.of(context).colorScheme.inversePrimary,
                           ),
                         ),
                       ],

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kelompok_empat/models/product.dart';
-import 'package:kelompok_empat/widgets/currency_format.dart';
+import 'package:kelompok_empat/helpers/currency_format.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({super.key, required this.product});
@@ -13,31 +13,31 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var harga = int.parse(product.harga);
     return Scaffold(
-      backgroundColor: Colors.grey[900],
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        leading: const BackButton(
-          color: Colors.white,
+        leading: BackButton(
+          color: Theme.of(context).colorScheme.inversePrimary,
         ),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.transparent,
         actions: [
           IconButton(
             onPressed: () {},
-            icon: const Icon(
+            icon: Icon(
               Icons.search,
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.inversePrimary,
             ),
           ),
           IconButton(
             onPressed: () {},
-            icon: const Icon(
+            icon: Icon(
               Icons.shopping_cart_outlined,
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.inversePrimary,
             ),
           ),
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.notifications_none_rounded,
-                color: Colors.white),
+            icon: Icon(Icons.notifications_none_rounded,
+                color: Theme.of(context).colorScheme.inversePrimary),
           ),
         ],
       ),
@@ -49,7 +49,7 @@ class DetailPage extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               width: double.infinity,
-              color: Colors.black,
+              color: Theme.of(context).colorScheme.primary,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -76,7 +76,7 @@ class DetailPage extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               width: double.infinity,
-              color: Colors.black,
+              color: Theme.of(context).colorScheme.primary,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -108,7 +108,7 @@ class DetailPage extends StatelessWidget {
           height: 60,
           child: BottomAppBar(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            color: Colors.black,
+            color: Theme.of(context).colorScheme.background,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [

@@ -26,7 +26,7 @@ class _MainPageState extends State<MainPage> {
       body: _widgetOptions.elementAt(_currentIndex),
       bottomNavigationBar: SafeArea(
         child: Container(
-          color: Colors.black,
+          color: Theme.of(context).colorScheme.background,
           height: 60,
           width: MediaQuery.of(context).size.width,
           child: Padding(
@@ -38,8 +38,8 @@ class _MainPageState extends State<MainPage> {
               iconSize: 24,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               duration: const Duration(milliseconds: 400),
-              tabBackgroundColor: Colors.grey.shade900,
-              backgroundColor: Colors.black,
+              tabBackgroundColor: Theme.of(context).colorScheme.primary,
+              backgroundColor: Theme.of(context).colorScheme.background,
               color: Colors.white,
               gap: 8,
               tabs: const [
