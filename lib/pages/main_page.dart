@@ -34,14 +34,14 @@ class _MainPageState extends State<MainPage> {
             child: GNav(
               rippleColor: Colors.grey, // tab button ripple color when pressed
               hoverColor: Colors.grey, // tab button hover color
-              activeColor: Colors.white,
+              activeColor: Theme.of(context).colorScheme.inversePrimary,
               iconSize: 24,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               duration: const Duration(milliseconds: 400),
               tabBackgroundColor: Theme.of(context).colorScheme.primary,
               backgroundColor: Theme.of(context).colorScheme.background,
-              color: Colors.white,
               gap: 8,
+              color: Theme.of(context).colorScheme.inversePrimary,
               tabs: const [
                 GButton(
                   icon: Icons.home_outlined,

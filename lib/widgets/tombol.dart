@@ -28,7 +28,7 @@ class Tombol extends StatelessWidget {
           child: Text(
             text,
             style: GoogleFonts.poppins(
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.inversePrimary,
               fontSize: 16,
             ),
           ),

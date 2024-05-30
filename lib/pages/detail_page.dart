@@ -43,58 +43,89 @@ class DetailPage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.network(product.image),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+            SizedBox(
               width: double.infinity,
-              color: Theme.of(context).colorScheme.primary,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: Stack(
                 children: [
-                  Text(
-                    CurrencyFormat.convertToIdr(harga, 0),
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height / 2.8,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage(product.image),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                  Text(
-                    product.title,
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.normal,
+                  Container(
+                    margin: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.height * 0.3,
                     ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 5),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              width: double.infinity,
-              color: Theme.of(context).colorScheme.primary,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Detail Produk',
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                    width: double.infinity,
+                    height: MediaQuery.of(context).size.height,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.primary,
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30),
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 5),
-                  Text(
-                    product.description,
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontSize: 12,
-                      fontWeight: FontWeight.normal,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                product.title,
+                                style: GoogleFonts.poppins(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .inversePrimary,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                CurrencyFormat.convertToIdr(harga, 0),
+                                style: GoogleFonts.poppins(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .inversePrimary,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const Divider(
+                            thickness: 0.3,
+                          ),
+                          const SizedBox(height: 10),
+                          Text(
+                            "Detail Produk",
+                            style: GoogleFonts.poppins(
+                              color:
+                                  Theme.of(context).colorScheme.inversePrimary,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(height: 5),
+                          Text(
+                            product.description,
+                            style: GoogleFonts.poppins(
+                              color:
+                                  Theme.of(context).colorScheme.inversePrimary,
+                              fontSize: 12,
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -114,16 +145,18 @@ class DetailPage extends StatelessWidget {
               children: [
                 IconButton(
                   onPressed: () {},
-                  icon: const Icon(
+                  icon: Icon(
                     CupertinoIcons.chat_bubble_text,
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.inversePrimary,
                   ),
                 ),
                 Container(
                   height: 50,
                   width: MediaQuery.of(context).size.width / 3,
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white),
+                    border: Border.all(
+                      color: Theme.of(context).colorScheme.inversePrimary,
+                    ),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Row(
@@ -132,15 +165,15 @@ class DetailPage extends StatelessWidget {
                       Text(
                         "Keranjang",
                         style: GoogleFonts.poppins(
-                          color: Colors.white,
+                          color: Theme.of(context).colorScheme.inversePrimary,
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       const SizedBox(width: 10),
-                      const Icon(
+                      Icon(
                         CupertinoIcons.cart_fill_badge_plus,
-                        color: Colors.white,
+                        color: Theme.of(context).colorScheme.inversePrimary,
                       ),
                     ],
                   ),
@@ -149,7 +182,9 @@ class DetailPage extends StatelessWidget {
                   height: 50,
                   width: MediaQuery.of(context).size.width / 3,
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white),
+                    border: Border.all(
+                      color: Theme.of(context).colorScheme.inversePrimary,
+                    ),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Row(
@@ -158,7 +193,7 @@ class DetailPage extends StatelessWidget {
                       Text(
                         "Beli Sekarang",
                         style: GoogleFonts.poppins(
-                          color: Colors.white,
+                          color: Theme.of(context).colorScheme.inversePrimary,
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
                         ),
