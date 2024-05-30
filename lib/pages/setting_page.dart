@@ -46,11 +46,12 @@ class _SettingPageState extends State<SettingPage> {
                   Text(
                     "Dark Mode",
                     style: GoogleFonts.poppins(
-                      color: Colors.white,
+                      color: Theme.of(context).colorScheme.inversePrimary,
                       fontSize: 20,
                     ),
                   ),
                   Switch(
+                    activeColor: Colors.white,
                     value: Provider.of<ThemeProvider>(context).themeData ==
                             darkMode
                         ? true

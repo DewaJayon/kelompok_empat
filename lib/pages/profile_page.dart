@@ -56,7 +56,7 @@ class ProfilePage extends StatelessWidget {
                         Text(
                           'Kelompok Empat',
                           style: GoogleFonts.poppins(
-                            color: Colors.white,
+                            color: Theme.of(context).colorScheme.inversePrimary,
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                           ),
@@ -64,7 +64,7 @@ class ProfilePage extends StatelessWidget {
                         Text(
                           'kelompokempat@gmail.com',
                           style: GoogleFonts.poppins(
-                            color: Colors.white,
+                            color: Theme.of(context).colorScheme.inversePrimary,
                             fontSize: 15,
                             fontWeight: FontWeight.normal,
                           ),

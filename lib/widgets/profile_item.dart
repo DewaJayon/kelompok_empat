@@ -26,14 +26,14 @@ class ProfileItem extends StatelessWidget {
           children: [
             Icon(
               icon,
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.inversePrimary,
               size: 30,
             ),
             const SizedBox(width: 20),
             Text(
               text,
               style: GoogleFonts.poppins(
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.inversePrimary,
                 fontSize: 20,
                 fontWeight: FontWeight.normal,
               ),

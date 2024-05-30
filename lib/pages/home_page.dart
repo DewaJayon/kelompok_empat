@@ -187,8 +187,7 @@ class _HomePageState extends State<HomePage> {
                             style: GoogleFonts.poppins(
                               fontSize: 16,
                               fontWeight: FontWeight.normal,
-                              color:
-                                  Theme.of(context).colorScheme.inversePrimary,
+                              color: Colors.white,
                             ),
                           ),
                         ),

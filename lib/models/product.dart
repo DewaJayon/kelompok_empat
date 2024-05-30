@@ -36,7 +36,7 @@ class Product {
       Map api = json.decode(response.body);
       List jsonResponse = api['data'];
 
-      print("data product: " + jsonResponse.toString());
+      // print("data product: " + jsonResponse.toString());
 
       return jsonResponse.map((data) => Product.fromJson(data)).toList();
     } else {
