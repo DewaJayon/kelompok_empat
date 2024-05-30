@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:banner_carousel/banner_carousel.dart';
-import 'package:kelompok_empat/models/product.dart';
-import 'package:kelompok_empat/pages/detail_page.dart';
-import 'package:kelompok_empat/helpers/currency_format.dart';
+import 'package:kelompok_empat/pages/product_page.dart';
 import 'package:kelompok_empat/widgets/home_banner.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,21 +12,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Product> products = [];
-
-  getData() async {
-    products = await Product.fetchData();
-    setState(() {
-      products = products;
-    });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    getData();
-  }
-
   List brands = [
     "assets/brands/bmw.png",
     "assets/brands/honda.png",
@@ -249,7 +232,14 @@ class _HomePageState extends State<HomePage> {
                         ),
                         alignment: Alignment.center,
                         child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ProductPage(),
+                              ),
+                            );
+                          },
                           icon: const Icon(
                             Icons.arrow_forward_ios,
                             color: Colors.white,
@@ -261,81 +251,6 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            const SizedBox(height: 15),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Text(
-                "List Produk",
-                style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                  color: Theme.of(context).colorScheme.inversePrimary,
-                ),
-              ),
-            ),
-            const SizedBox(height: 15),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: GridView.builder(
-                itemCount: products.length,
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 0.7,
-                  mainAxisSpacing: 10,
-                  crossAxisSpacing: 10,
-                ),
-                itemBuilder: (context, index) {
-                  Product product = products[index];
-                  var harga = int.parse(product.harga);
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => DetailPage(product: product),
-                        ),
-                      );
-                    },
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width,
-                          height: MediaQuery.of(context).size.width / 2.1,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            image: DecorationImage(
-                              image: Image.network(product.image).image,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          product.title,
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.normal,
-                            fontSize: 13,
-                            color: Theme.of(context).colorScheme.inversePrimary,
-                          ),
-                        ),
-                        Text(
-                          CurrencyFormat.convertToIdr(harga, 0).toString(),
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 14,
-                            color: Theme.of(context).colorScheme.inversePrimary,
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              ),
-            )
           ],
         ),
       ),
