@@ -28,21 +28,15 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        title: Text(
-          "SOK ASIK",
-          style: GoogleFonts.poppins(
-            color: Theme.of(context).colorScheme.inversePrimary,
+        leading: Padding(
+          padding: EdgeInsets.only(left: 35),
+          child: Transform.scale(
+            scale: 3.2,
+            child: Image.asset('assets/images/splash.png'),
           ),
         ),
-        backgroundColor: Colors.transparent,
+        backgroundColor: Color.fromARGB(77, 0, 159, 212),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.search,
-              color: Theme.of(context).colorScheme.inversePrimary,
-            ),
-          ),
           IconButton(
             onPressed: () {},
             icon: Icon(
