@@ -29,13 +29,13 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         leading: Padding(
-          padding: EdgeInsets.only(left: 35),
+          padding: const EdgeInsets.only(left: 35),
           child: Transform.scale(
             scale: 3.2,
             child: Image.asset('assets/images/splash.png'),
           ),
         ),
-        backgroundColor: Color.fromARGB(77, 0, 159, 212),
+        backgroundColor: Colors.transparent,
         actions: [
           IconButton(
             onPressed: () {},
@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> {
                     Icons.search,
                     color: Theme.of(context).colorScheme.inversePrimary,
                   ),
-                  hintText: "Cari Mobil Inpian Anda...",
+                  hintText: "Cari Mobil Impian Anda...",
                   hintStyle: GoogleFonts.poppins(
                     color: Theme.of(context).colorScheme.inversePrimary,
                   ),
