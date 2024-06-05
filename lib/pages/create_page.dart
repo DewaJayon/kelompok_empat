@@ -66,7 +66,7 @@ class _CreatePageState extends State<CreatePage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Text(
-          'Tambah Produk Page',
+          'Add Car List',
           style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
         ),
       ),
@@ -78,31 +78,31 @@ class _CreatePageState extends State<CreatePage> {
             children: [
               CustomTextField(
                 controller: _namaController,
-                label: "Nama Produk",
+                label: "Car Name",
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Masukkan Nama Produk';
+                    return 'Input Car Name';
                   }
                   return null;
                 },
               ),
               CustomTextField(
                 controller: _deskripsiController,
-                label: "Deskripsi",
+                label: "Description",
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Masukkan Deskripsi';
+                    return 'Input Description';
                   }
                   return null;
                 },
               ),
               CustomTextField(
                 controller: _hargaController,
-                label: "Harga",
+                label: "Price",
                 keyboardType: TextInputType.number,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Masukkan Harga';
+                    return 'Input Price';
                   }
                   return null;
                 },
@@ -112,7 +112,7 @@ class _CreatePageState extends State<CreatePage> {
                 onTap: () {
                   _createProduct();
                 },
-                text: "Tambah",
+                text: "Add",
               ),
             ],
           ),
