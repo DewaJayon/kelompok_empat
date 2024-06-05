@@ -182,20 +182,6 @@ class _HomePageState extends State<HomePage> {
                               horizontal: 10,
                               vertical: 5,
                             ),
-                            decoration: BoxDecoration(
-                              color: Colors.black.withOpacity(0.5),
-                              borderRadius: const BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
-                            child: Text(
-                              "Toyota GR Supra",
-                              style: GoogleFonts.poppins(
-                                fontSize: 16,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.white,
-                              ),
-                            ),
                           ),
                         ),
                       ),
