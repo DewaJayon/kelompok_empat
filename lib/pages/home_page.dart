@@ -23,6 +23,12 @@ class _HomePageState extends State<HomePage> {
     "assets/brands/toyota.png",
   ];
 
+  List favorite = [
+    "assets/images/favorite1.jpg",
+    "assets/images/favorite2.jpg",
+    "assets/images/favorite3.jpg",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,16 +69,13 @@ class _HomePageState extends State<HomePage> {
               showIndicator: true,
               customizedBanners: [
                 HomeBanner(
-                  imageNetwork:
-                      "https://images.unsplash.com/photo-1605907153179-8b364644a241?q=80&w=1930&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                  assetImages: "assets/images/header1.jpg",
                 ),
                 HomeBanner(
-                  imageNetwork:
-                      "https://images.squarespace-cdn.com/content/v1/5dddc97c5354152c5156b1f4/1581288724636-TM5ZL1KCORYOKMQN112G/Toyota_AE-86_Sprinter_Trueno.jpg",
+                  assetImages: "assets/images/header2.jpg",
                 ),
                 HomeBanner(
-                  imageNetwork:
-                      "https://upload.wikimedia.org/wikipedia/commons/e/e5/2020_Toyota_GR_Supra_%28United_States%29.png",
+                  assetImages: "assets/images/header3.jpg",
                 ),
               ],
             ),
@@ -159,7 +162,7 @@ class _HomePageState extends State<HomePage> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    for (int i = 0; i < 5; i++)
+                    for (int i = 0; i < favorite.length; i++)
                       Container(
                         width: MediaQuery.of(context).size.width / 1.5,
                         height: MediaQuery.of(context).size.height / 5,
@@ -167,21 +170,31 @@ class _HomePageState extends State<HomePage> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           image: DecorationImage(
-                            image: Image.network(
-                                    "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
-                                .image,
+                            image: AssetImage(favorite[i]),
                             fit: BoxFit.cover,
                           ),
                         ),
                         child: Container(
                           padding: const EdgeInsets.all(10),
                           alignment: Alignment.bottomLeft,
-                          child: Text(
-                            "Toyota GR Supra",
-                            style: GoogleFonts.poppins(
-                              fontSize: 16,
-                              fontWeight: FontWeight.normal,
-                              color: Colors.white,
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 5,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.black.withOpacity(0.5),
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(10),
+                              ),
+                            ),
+                            child: Text(
+                              "Toyota GR Supra",
+                              style: GoogleFonts.poppins(
+                                fontSize: 16,
+                                fontWeight: FontWeight.normal,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ),

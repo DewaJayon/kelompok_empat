@@ -16,6 +16,7 @@ class _ProductPageState extends State<ProductPage> {
 
   getData() async {
     products = await Product.fetchData();
+    setState(() {});
   }
 
   @override
@@ -76,8 +77,9 @@ class _ProductPageState extends State<ProductPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>
-                                    DetailPage(product: product),
+                                builder: (context) => DetailPage(
+                                  product: product,
+                                ),
                               ),
                             );
                           },

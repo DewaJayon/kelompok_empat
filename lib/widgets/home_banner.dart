@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class HomeBanner extends StatelessWidget {
-  const HomeBanner({super.key, required this.imageNetwork});
+  const HomeBanner({
+    super.key,
+    required this.assetImages,
+  });
 
-  final String imageNetwork;
-
+  final String assetImages;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -17,7 +19,7 @@ class HomeBanner extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           image: DecorationImage(
-            image: Image.network(imageNetwork).image,
+            image: AssetImage(assetImages),
             fit: BoxFit.cover,
           ),
         ),
